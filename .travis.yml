@@ -26,3 +26,16 @@ after_success:
   - docker push amiroous/docker-k8s-fibonacci-nginx
   - docker push amiroous/docker-k8s-fibonacci-server
   - docker push amiroous/docker-k8s-fibonacci-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "docker-k8s-fibonacci"
+  env: "DockerK8sFibonacci-env"
+  bucket_name: "elasticbeanstalk-us-west-1-627871014836" # AWS S3
+  bucket_path: "docker-k8s-fibonacci" # Same as App
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
