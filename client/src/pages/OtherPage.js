@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const OtherPage = () => {
     return (
         <div>
-            Other Page
-            <Link to="/">Home</Link>
+            <h1>Other Page</h1>
         </div>
+
     );
 };
 
